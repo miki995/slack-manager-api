@@ -1,7 +1,7 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { map } from 'rxjs/operators';
 import FilesService from './files.service';
-import { IFileQuery } from '../../models/file.model';
+import { IFilesQueryParams } from '../../models/file.model';
 
 @Controller('api/files')
 export class FilesController {
@@ -10,7 +10,7 @@ export class FilesController {
   }
 
   @Get('list')
-  async getFiles(@Query() query: IFileQuery) {
+  async getFiles(@Query() query: IFilesQueryParams) {
 
     return this.filesService.getFiles(query)
       .pipe(
@@ -21,7 +21,7 @@ export class FilesController {
   }
 
   @Get('remote/list')
-  async getRemoteFiles(@Query() query: IFileQuery) {
+  async getRemoteFiles(@Query() query: IFilesQueryParams) {
 
     return this.filesService.getRemoteFiles(query)
       .pipe(

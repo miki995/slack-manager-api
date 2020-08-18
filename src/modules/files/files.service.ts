@@ -1,6 +1,7 @@
 import { HttpService, Injectable } from '@nestjs/common';
 import { Observable } from 'rxjs';
-import { IFileQuery } from '../../models/file.model';
+import { IFilesQueryParams } from '../../models/file.model';
+import { serialize } from '../../helpers/query-params.helper';
 
 @Injectable()
 export default class FilesService {
@@ -10,15 +11,15 @@ export default class FilesService {
   constructor(private readonly httpService: HttpService) {
   }
 
-  getFiles(query: IFileQuery): Observable<any> {
+  getFiles(query: IFilesQueryParams): Observable<any> {
 
-    const url = `${ this.apiEndpoint }/files.list?token=${ query.token }&show_files_hidden_by_limit=${ query.show_files_hidden_by_limit }`;
+    const url = `${ this.apiEndpoint }/files.list?${ serialize(query) }`;
     return this.httpService.get(url);
   }
 
-  getRemoteFiles(query: IFileQuery): Observable<any> {
+  getRemoteFiles(query: IFilesQueryParams): Observable<any> {
 
-    const url = `${ this.apiEndpoint }/files.remote.list?token=${ query.token }&show_files_hidden_by_limit=${ query.show_files_hidden_by_limit }`;
+    const url = `${ this.apiEndpoint }/files.remote.list?${ serialize(query) }`;
     return this.httpService.get(url);
   }
 }
