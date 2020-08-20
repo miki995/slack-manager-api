@@ -1,3 +1,8 @@
+export interface IQueryParams {
+  token?: string;
+  limit?: string;
+}
+
 export interface IFilesQueryParams {
   token?: string;
   show_files_hidden_by_limit?: boolean;
