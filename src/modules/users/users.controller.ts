@@ -19,4 +19,15 @@ export class UsersController {
         }),
       );
   }
+
+  @Get('profile')
+  async getProfile(@Query() query: IFilesQueryParams) {
+
+    return this.usersService.getProfile(query)
+      .pipe(
+        map(response => {
+          return response.data;
+        }),
+      );
+  }
 }

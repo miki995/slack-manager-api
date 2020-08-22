@@ -16,4 +16,10 @@ export default class UsersService {
     const url = `${ this.apiEndpoint }/users.list?${ serialize(query) }`;
     return this.httpService.get(url);
   }
+
+  getProfile(query: IQueryParams): Observable<any> {
+
+    const url = `${ this.apiEndpoint }/users.profile.get?${ serialize(query) }`;
+    return this.httpService.get(url);
+  }
 }
