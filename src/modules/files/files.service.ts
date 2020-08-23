@@ -22,4 +22,16 @@ export default class FilesService {
     const url = `${ this.apiEndpoint }/files.remote.list?${ serialize(query) }`;
     return this.httpService.get(url);
   }
+
+  getFile(query: IFilesQueryParams): Observable<any> {
+
+    const url = `${ this.apiEndpoint }/files.info?${ serialize(query) }`;
+    return this.httpService.get(url);
+  }
+
+  getRemoteFile(query: IFilesQueryParams): Observable<any> {
+
+    const url = `${ this.apiEndpoint }/files.remote.info?${ serialize(query) }`;
+    return this.httpService.get(url);
+  }
 }

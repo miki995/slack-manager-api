@@ -30,4 +30,26 @@ export class FilesController {
         }),
       );
   }
+
+  @Get('info')
+  async getFileInfo(@Query() query: IFilesQueryParams) {
+
+    return this.filesService.getFile(query)
+      .pipe(
+        map(response => {
+          return response.data;
+        }),
+      );
+  }
+
+  @Get('remote/info')
+  async getRemoteFileInfo(@Query() query: IFilesQueryParams) {
+
+    return this.filesService.getRemoteFile(query)
+      .pipe(
+        map(response => {
+          return response.data;
+        }),
+      );
+  }
 }
