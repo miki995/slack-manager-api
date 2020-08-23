@@ -34,4 +34,16 @@ export default class FilesService {
     const url = `${ this.apiEndpoint }/files.remote.info?${ serialize(query) }`;
     return this.httpService.get(url);
   }
+
+  deleteFile(query: IFilesQueryParams): Observable<any> {
+
+    const url = `${ this.apiEndpoint }/files.delete?${ serialize(query) }`;
+    return this.httpService.get(url);
+  }
+
+  deleteRemoteFile(query: IFilesQueryParams): Observable<any> {
+
+    const url = `${ this.apiEndpoint }/files.remote.delete?${ serialize(query) }`;
+    return this.httpService.get(url);
+  }
 }
