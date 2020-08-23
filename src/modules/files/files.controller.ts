@@ -52,4 +52,26 @@ export class FilesController {
         }),
       );
   }
+
+  @Get('delete')
+  async deleteFile(@Query() query: IFilesQueryParams) {
+
+    return this.filesService.deleteFile(query)
+      .pipe(
+        map(response => {
+          return response.data;
+        }),
+      );
+  }
+
+  @Get('remote/delete')
+  async deleteRemoteFile(@Query() query: IFilesQueryParams) {
+
+    return this.filesService.deleteRemoteFile(query)
+      .pipe(
+        map(response => {
+          return response.data;
+        }),
+      );
+  }
 }
