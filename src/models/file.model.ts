@@ -8,6 +8,7 @@ export interface IFilesQueryParams {
   show_files_hidden_by_limit?: boolean;
   count?: EFilesCount;
   file?: string;
+  query?: string;
 }
 
 export enum EFilesCount {

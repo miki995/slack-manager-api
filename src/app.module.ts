@@ -4,6 +4,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { FilesModule } from './modules/files/files.module';
 import { ConversationsModule } from './modules/conversations/conversations.module';
 import { UsersModule } from './modules/users/users.module';
+import { SearchModule } from './modules/search/search.module';
 
 @Module({
   imports: [
@@ -11,7 +12,8 @@ import { UsersModule } from './modules/users/users.module';
     AuthModule,
     FilesModule,
     ConversationsModule,
-    UsersModule
+    UsersModule,
+    SearchModule
   ],
   controllers: [],
   providers: [],
