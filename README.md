@@ -32,6 +32,7 @@
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
+  * [Deploy](#deploy)
 * [Usage](#usage)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
@@ -91,6 +92,12 @@ git clone https://github.com/your_username_/Project-Name.git
 ```sh
 npm install
 ```
+
+### Deploy
+
+/* https://trilon.io/blog/deploying-nestjs-to-zeit-now */
+
+ `npm run build && now`
 
 
 <!-- USAGE EXAMPLES -->
