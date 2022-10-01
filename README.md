@@ -98,6 +98,7 @@ npm install
 /* https://trilon.io/blog/deploying-nestjs-to-zeit-now */
 
  `npm run build && now`
+or `npm run build && vercel --prod`
 
 
 <!-- USAGE EXAMPLES -->
