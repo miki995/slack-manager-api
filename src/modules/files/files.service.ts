@@ -6,44 +6,44 @@ import { serialize } from '../../helpers/query-params.helper';
 @Injectable()
 export default class FilesService {
 
-  private apiEndpoint = 'https://slack.com/api';
+    private apiEndpoint = 'https://slack.com/api';
 
-  constructor(private readonly httpService: HttpService) {
-  }
+    constructor(private readonly httpService: HttpService) {
+    }
 
-  getFiles(query: IFilesQueryParams): Observable<any> {
+    getFiles(query: IFilesQueryParams): Observable<any> {
 
-    const url = `${ this.apiEndpoint }/files.list?${ serialize(query) }`;
-    return this.httpService.get(url);
-  }
+        const url = `${ this.apiEndpoint }/files.list?${ serialize(query) }`;
+        return this.httpService.get(url, { headers: { authorization: query?.token } });
+    }
 
-  getRemoteFiles(query: IFilesQueryParams): Observable<any> {
+    getRemoteFiles(query: IFilesQueryParams): Observable<any> {
 
-    const url = `${ this.apiEndpoint }/files.remote.list?${ serialize(query) }`;
-    return this.httpService.get(url);
-  }
+        const url = `${ this.apiEndpoint }/files.remote.list?${ serialize(query) }`;
+        return this.httpService.get(url, { headers: { authorization: query?.token } });
+    }
 
-  getFile(query: IFilesQueryParams): Observable<any> {
+    getFile(query: IFilesQueryParams): Observable<any> {
 
-    const url = `${ this.apiEndpoint }/files.info?${ serialize(query) }`;
-    return this.httpService.get(url);
-  }
+        const url = `${ this.apiEndpoint }/files.info?${ serialize(query) }`;
+        return this.httpService.get(url, { headers: { authorization: query?.token } });
+    }
 
-  getRemoteFile(query: IFilesQueryParams): Observable<any> {
+    getRemoteFile(query: IFilesQueryParams): Observable<any> {
 
-    const url = `${ this.apiEndpoint }/files.remote.info?${ serialize(query) }`;
-    return this.httpService.get(url);
-  }
+        const url = `${ this.apiEndpoint }/files.remote.info?${ serialize(query) }`;
+        return this.httpService.get(url, { headers: { authorization: query?.token } });
+    }
 
-  deleteFile(query: IFilesQueryParams): Observable<any> {
+    deleteFile(query: IFilesQueryParams): Observable<any> {
 
-    const url = `${ this.apiEndpoint }/files.delete?${ serialize(query) }`;
-    return this.httpService.get(url);
-  }
+        const url = `${ this.apiEndpoint }/files.delete?${ serialize(query) }`;
+        return this.httpService.get(url, { headers: { authorization: query?.token } });
+    }
 
-  deleteRemoteFile(query: IFilesQueryParams): Observable<any> {
+    deleteRemoteFile(query: IFilesQueryParams): Observable<any> {
 
-    const url = `${ this.apiEndpoint }/files.remote.delete?${ serialize(query) }`;
-    return this.httpService.get(url);
-  }
+        const url = `${ this.apiEndpoint }/files.remote.delete?${ serialize(query) }`;
+        return this.httpService.get(url, { headers: { authorization: query?.token } });
+    }
 }

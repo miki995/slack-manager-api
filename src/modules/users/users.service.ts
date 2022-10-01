@@ -6,20 +6,20 @@ import { serialize } from '../../helpers/query-params.helper';
 @Injectable()
 export default class UsersService {
 
-  private apiEndpoint = 'https://slack.com/api';
+    private apiEndpoint = 'https://slack.com/api';
 
-  constructor(private readonly httpService: HttpService) {
-  }
+    constructor(private readonly httpService: HttpService) {
+    }
 
-  getUsers(query: IQueryParams): Observable<any> {
+    getUsers(query: IQueryParams): Observable<any> {
 
-    const url = `${ this.apiEndpoint }/users.list?${ serialize(query) }`;
-    return this.httpService.get(url);
-  }
+        const url = `${ this.apiEndpoint }/users.list?${ serialize(query) }`;
+        return this.httpService.get(url, { headers: { authorization: query?.token } });
+    }
 
-  getProfile(query: IQueryParams): Observable<any> {
+    getProfile(query: IQueryParams): Observable<any> {
 
-    const url = `${ this.apiEndpoint }/users.profile.get?${ serialize(query) }`;
-    return this.httpService.get(url);
-  }
+        const url = `${ this.apiEndpoint }/users.profile.get?${ serialize(query) }`;
+        return this.httpService.get(url, { headers: { authorization: query?.token } });
+    }
 }

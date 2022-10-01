@@ -1,9 +1,11 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import { Controller, Get, Query, UseInterceptors } from '@nestjs/common';
 import { map } from 'rxjs/operators';
 import FilesService from './files.service';
 import { IFilesQueryParams } from '../../models/file.model';
+import { HttpServiceInterceptor } from '../../interceptors/http-service.interceptor';
 
 @Controller('api/files')
+@UseInterceptors(HttpServiceInterceptor)
 export class FilesController {
 
   constructor(private readonly filesService: FilesService) {

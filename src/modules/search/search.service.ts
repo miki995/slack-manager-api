@@ -6,14 +6,14 @@ import { serialize } from '../../helpers/query-params.helper';
 @Injectable()
 export default class SearchService {
 
-  private apiEndpoint = 'https://slack.com/api';
+    private apiEndpoint = 'https://slack.com/api';
 
-  constructor(private readonly httpService: HttpService) {
-  }
+    constructor(private readonly httpService: HttpService) {
+    }
 
-  searchFiles(query: IFilesQueryParams): Observable<any> {
+    searchFiles(query: IFilesQueryParams): Observable<any> {
 
-    const url = `${ this.apiEndpoint }/search.files?${ serialize(query) }`;
-    return this.httpService.get(url);
-  }
+        const url = `${ this.apiEndpoint }/search.files?${ serialize(query) }`;
+        return this.httpService.get(url, { headers: { authorization: query?.token } });
+    }
 }
