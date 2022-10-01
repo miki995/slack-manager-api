@@ -14,6 +14,6 @@ export default class ConversationsService {
     getConversations(query: IFilesQueryParams): Observable<any> {
 
         const url = `${ this.apiEndpoint }/conversations.list?${ serialize(query) }`;
-        return this.httpService.get(url, { headers: { authorization: query?.token } });
+        return this.httpService.get(url, { headers: { Authorization: `Bearer ${query?.token}` } });
     }
 }

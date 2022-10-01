@@ -14,12 +14,12 @@ export default class UsersService {
     getUsers(query: IQueryParams): Observable<any> {
 
         const url = `${ this.apiEndpoint }/users.list?${ serialize(query) }`;
-        return this.httpService.get(url, { headers: { authorization: query?.token } });
+        return this.httpService.get(url, { headers: { Authorization: `Bearer ${query?.token}` } });
     }
 
     getProfile(query: IQueryParams): Observable<any> {
 
         const url = `${ this.apiEndpoint }/users.profile.get?${ serialize(query) }`;
-        return this.httpService.get(url, { headers: { authorization: query?.token } });
+        return this.httpService.get(url, { headers: { Authorization: `Bearer ${query?.token}` } });
     }
 }

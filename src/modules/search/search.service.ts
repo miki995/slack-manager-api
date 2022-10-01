@@ -14,6 +14,6 @@ export default class SearchService {
     searchFiles(query: IFilesQueryParams): Observable<any> {
 
         const url = `${ this.apiEndpoint }/search.files?${ serialize(query) }`;
-        return this.httpService.get(url, { headers: { authorization: query?.token } });
+        return this.httpService.get(url, { headers: { Authorization: `Bearer ${query?.token}` } });
     }
 }

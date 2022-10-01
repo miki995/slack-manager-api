@@ -14,36 +14,36 @@ export default class FilesService {
     getFiles(query: IFilesQueryParams): Observable<any> {
 
         const url = `${ this.apiEndpoint }/files.list?${ serialize(query) }`;
-        return this.httpService.get(url, { headers: { authorization: query?.token } });
+        return this.httpService.get(url, { headers: { Authorization: `Bearer ${query?.token}` } });
     }
 
     getRemoteFiles(query: IFilesQueryParams): Observable<any> {
 
         const url = `${ this.apiEndpoint }/files.remote.list?${ serialize(query) }`;
-        return this.httpService.get(url, { headers: { authorization: query?.token } });
+        return this.httpService.get(url, { headers: { Authorization: `Bearer ${query?.token}` } });
     }
 
     getFile(query: IFilesQueryParams): Observable<any> {
 
         const url = `${ this.apiEndpoint }/files.info?${ serialize(query) }`;
-        return this.httpService.get(url, { headers: { authorization: query?.token } });
+        return this.httpService.get(url, { headers: { Authorization: `Bearer ${query?.token}` } });
     }
 
     getRemoteFile(query: IFilesQueryParams): Observable<any> {
 
         const url = `${ this.apiEndpoint }/files.remote.info?${ serialize(query) }`;
-        return this.httpService.get(url, { headers: { authorization: query?.token } });
+        return this.httpService.get(url, { headers: { Authorization: `Bearer ${query?.token}` } });
     }
 
     deleteFile(query: IFilesQueryParams): Observable<any> {
 
         const url = `${ this.apiEndpoint }/files.delete?${ serialize(query) }`;
-        return this.httpService.get(url, { headers: { authorization: query?.token } });
+        return this.httpService.get(url, { headers: { Authorization: `Bearer ${query?.token}` } });
     }
 
     deleteRemoteFile(query: IFilesQueryParams): Observable<any> {
 
         const url = `${ this.apiEndpoint }/files.remote.delete?${ serialize(query) }`;
-        return this.httpService.get(url, { headers: { authorization: query?.token } });
+        return this.httpService.get(url, { headers: { Authorization: `Bearer ${query?.token}` } });
     }
 }

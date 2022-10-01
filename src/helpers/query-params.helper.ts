@@ -4,7 +4,7 @@ export function serialize(obj: object): string {
   const str = [];
 
   for (const p in obj) {
-    if (obj.hasOwnProperty(p) && p) {
+    if (obj.hasOwnProperty(p) && p?.toString() !== 'token') {
       str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]));
     }
   }
